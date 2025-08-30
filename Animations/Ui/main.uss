@@ -1,0 +1,31 @@
+:root {
+}
+
+.btn {
+    font-size: 50px;
+    background-image: url("project://database/Assets/Chironzit/Ui/Character/Main%20button.png?fileID=2800000&guid=9bfb92a339d7b7b4586d61a21d1d0a21&type=3#Main button");
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    padding-right: 20px;
+    padding-left: 20px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-scale: 0;
+    background-size: 360px 300px;
+    background-position-x: center;
+    -unity-background-scale-mode: scale-and-crop;
+    background-position-y: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: 100%;
+    height: 50%;
+}
+
+.btn:hover {
+    scale: 1.1 1.1 1.1;
+    transition-duration: 0.5s;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-in-out-elastic;
+}
