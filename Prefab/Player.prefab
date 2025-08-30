@@ -118,7 +118,7 @@ PrefabInstance:
       addedObject: {fileID: 8859937790638881080}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b5633c9bf8ee2a4898cc97518ff8ff0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5649076713784559641}
+      addedObject: {fileID: 6279561316382677218}
   m_SourcePrefab: {fileID: 100100000, guid: 7b5633c9bf8ee2a4898cc97518ff8ff0, type: 3}
 --- !u!4 &4684791422664499776 stripped
 Transform:
@@ -177,7 +177,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!95 &4356877772144318542
 Animator:
@@ -224,7 +224,7 @@ CapsuleCollider:
   m_Height: 1.7877139
   m_Direction: 1
   m_Center: {x: -0.009173521, y: 0.8647685, z: 0}
---- !u!114 &5649076713784559641
+--- !u!114 &6279561316382677218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,8 +233,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5352642879062194426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d099903f4d074dc4fb8bcfa03e25aa09, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dbedc128a15aaf42927b5478844924b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 6
-  rb: {fileID: 5163372340339413943}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
