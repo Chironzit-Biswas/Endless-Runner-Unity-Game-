@@ -1,63 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
+
 
 
 public class PlayerMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private float plaerSpeed = 10f;
-    [SerializeField] private float playerHorizontalSpeed = 3f;
+    [SerializeField] private float playerSpeed = 20f;
+    [SerializeField] private float playerHorizontalSpeed = 1f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float xBoundary = 4f;
+    [SerializeField] private GameManager gameManager;
 
-
+    private bool isAlive = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void FixedUpdate()
     {
-        Playermove();
+        if (isAlive)
+        {
+            PlayerMovement();
+        }
     }
 
-    void Playermove()
+    void PlayerMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        transform.Translate(horizontal * playerHorizontalSpeed * Time.deltaTime, 0f, plaerSpeed * Time.deltaTime);
+        transform.Translate(horizontal * playerHorizontalSpeed, 0f, playerSpeed * Time.deltaTime);
         Boundary();
     }
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("coin"))
-    //    {
-    //        Destroy(other.gameObject);
-    //        score++;
-    //        scoreText.text = score.ToString();
-
-    //    }
-    //}
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Obstacle"))
-    //    {
-    //        // Handle game over logic here
-    //        Debug.Log("Game Over!");
-    //        // For example, you might want to stop the player's movement
-    //        plaerSpeed = 0f;
-    //        playerHorizontalSpeed = 0f;
-    //    }
-    //}
 
     void Boundary()
     {
@@ -71,4 +47,14 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("obstacles"))
+        {
+            isAlive = false; // stop movement
+            //gameManager.restartPanel.SetActive(true); // show restart panel
+            gameManager.GameOver();
+        }
+    }
 }
+

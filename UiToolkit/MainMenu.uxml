@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/mainmenu.uss?fileID=7433441132597879392&amp;guid=dd5807aa698f66346bf69445f51b1cad&amp;type=3#mainmenu" />
+    <ui:VisualElement name="Menu" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Chironzit/Model/GameBackGround.png?fileID=2800000&amp;guid=e0e53fd42328eea44aacbff607dd1c8c&amp;type=3#GameBackGround&quot;);">
+        <ui:VisualElement name="Buttons" style="flex-grow: 1; justify-content: center; align-items: center; font-size: 0;">
+            <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" class="btn" style="font-size: 40px; -unity-font-style: bold; -unity-background-scale-mode: scale-and-crop; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; width: 350px;" />
+            <ui:Button text="Option" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OptionButton" class="btn" style="font-size: 40px; -unity-font-style: bold; -unity-background-scale-mode: scale-and-crop; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; width: 350px;" />
+            <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ExitButton" class="btn" style="font-size: 40px; -unity-font-style: bold; -unity-background-scale-mode: scale-and-crop; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; width: 350px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

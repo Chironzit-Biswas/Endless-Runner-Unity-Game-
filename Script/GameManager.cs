@@ -1,16 +1,30 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // Assign in Inspector
+    public GameObject pauseMenuUI;
+    public GameObject restartPanel;
+
     private bool isPaused = false;
 
-
     public static GameManager instance;
-    private int score = 0;
-    public TextMeshProUGUI scoreText;
 
+    private int score = 0;
+    private int highScore = 0;
+
+    public TextMeshProUGUI scoreText;       // In-game score text (top corner)
+    public TextMeshProUGUI finalScoreText;  // On RestartPanel: "Score: X"
+    public TextMeshProUGUI highScoreText;   // On RestartPanel: "High Score: Y"
+
+    void Awake()
+    {
+        instance = this;
+
+        // Load saved high score
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+    }
 
     void Update()
     {
@@ -25,37 +39,50 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f; // Freeze game
-        pauseMenuUI.SetActive(true); // Show menu
+        Time.timeScale = 0f;
+        pauseMenuUI.SetActive(true);
         isPaused = true;
-        Debug.Log("Game Paused");
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f; // Resume game
-        pauseMenuUI.SetActive(false); // Hide menu
+        Time.timeScale = 1f;
+        pauseMenuUI.SetActive(false);
         isPaused = false;
-        Debug.Log("Game Resumed");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game");
-        Application.Quit(); // Works in build, not in editor
-    }
-
-    void Awake()
-    {
-        instance = this;
+        Application.Quit(); // Works in build
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        scoreText.text =score.ToString();
+        scoreText.text = score.ToString();
     }
 
+    public void GameOver()
+    {
+        // Stop game
+        Time.timeScale = 0f;
 
+        // Save High Score
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+        }
 
+        // Show Restart Panel with both scores
+        restartPanel.SetActive(true);
+        finalScoreText.text = "Score: " + score;
+        highScoreText.text = "High Score: " + highScore;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
